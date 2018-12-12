@@ -4,7 +4,7 @@
 ## eventbus.js
 开发中有遇到过页面A调到页面B, B中完成某些操作后, 返回A时, A的某个状态也要相应的有变化.
 ### 效果
-![eventbus.js效果图][https://github.com/khunzh/wxmini_util/raw/master/imgs/eventbus.gif]
+![eventbus效果图](https://github.com/khunzh/wxmini_util/raw/master/imgs/eventbus.gif)
 ### 使用
 1. 在需要使用的页面引用
 ```
