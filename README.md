@@ -15,13 +15,15 @@ const Eventbus = require('path/eventbus.js');
 ```
 const eventbus = new Eventbus();
 // 为当前组件注册事件
-eventbus.on('update', this, res => {
+const eventId = eventbus.on('update', this, res => {
 	// 触发后的一些操作
 	console.log(res);
 
 	// 触发以后销毁A页面的这个事件
 	eventbus.destroy('updateStatus', res.event_id);
 })
+// 然后再合适的机会destory
+eventbus.destroy('update', eventId);
 ```
 页面B触发update, {callback_data: 1}是传给回调的数据
 ```

@@ -20,6 +20,7 @@ class Eventbus {
         } else {
             Eventbus.events[name] = [group];
         }
+		return id;
     }
     /**
      * 触发事件
