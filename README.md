@@ -18,9 +18,6 @@ const eventbus = new Eventbus();
 const eventId = eventbus.on('update', this, res => {
 	// 触发后的一些操作
 	console.log(res);
-
-	// 触发以后销毁A页面的这个事件
-	eventbus.destroy('updateStatus', res.event_id);
 })
 // 然后再合适的机会destory
 eventbus.destroy('update', eventId);
