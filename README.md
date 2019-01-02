@@ -27,3 +27,31 @@ eventbus.destroy('update', eventId);
 const eventbus = new Eventbus();
 eventbus.emit('update', {callback_data: 1});
 ```	
+## util.js
+### debounce
+简易防抖函数
+#### 使用
+1. 在需要的页面引用
+```
+const debounce = require('path/to/util.js').debounce;
+```
+2. 比如在onPageScroll页面事件中使用
+```
+onPageScroll(e) {
+        const newScrollTop = e.scrollTop;
+        if (!this.data.oldScrollTop) {
+            this.data.oldScrollTop = newScrollTop;
+        }
+        const diffScrollTop = newScrollTop - this.data.oldScrollTop;
+        let direction = '';
+        if (diffScrollTop > 0) {
+            direction = 'down';
+        } else if (diffScrollTop < 0) {
+            direction = 'up';
+        }
+        debounce(this, function () {
+            console.log('the direction is ', direction);
+            this.data.oldScrollTop = newScrollTop;
+        }, 300);
+    },
+```
